@@ -1,0 +1,34 @@
+.transactionHistory {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid lightblue;
+}
+
+.thead {
+  background-color: lightblue;
+  height: 40px;
+}
+.tbody {
+  text-align: justify;
+  transition: 250ms linear;
+}
+.itemsBody {
+  padding-left: 15px;
+  height: 50px;
+  cursor: pointer;
+}
+.itemsBody + .itemsBody {
+  border-left: 1px solid lightblue;
+}
+
+.tbody:hover {
+  transform: scale(1.025);
+}
+
+.tbody:nth-child(even) {
+  background-color: lightgray;
+}
+.tbody:nth-child(odd) {
+  background-color: lightcyan;
+}
