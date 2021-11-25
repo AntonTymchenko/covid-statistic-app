@@ -10,10 +10,10 @@ function CountriesList() {
   const state = useSelector((state) => getCountries(state));
   const filter = useSelector((state) => getFilter(state));
   const dispatch = useDispatch();
-  console.log("state", state);
+
   useEffect(() => {
     dispatch(countryOperations.fetchCountries());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
@@ -27,9 +27,7 @@ function CountriesList() {
         </thead>
 
         <tbody>
-          {!state ? (
-            <p>Loading...</p>
-          ) : (
+          {state &&
             getVisibleCountries(state, filter).map(
               ({ ID, Country, TotalConfirmed }, i) => (
                 <tr key={ID} className={s.tbody}>
@@ -38,8 +36,7 @@ function CountriesList() {
                   <td className={s.itemsBody}>{TotalConfirmed}</td>
                 </tr>
               )
-            )
-          )}
+            ).}
         </tbody>
       </table>
     </div>
