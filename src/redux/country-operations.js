@@ -8,7 +8,7 @@ import {
 
 axios.defaults.baseURL = "https://api.covid19api.com";
 
-const fetchCountries = () => async (dispatch) => {
+export const fetchCountries = () => async (dispatch) => {
   dispatch(fetchCountriesRequest());
   try {
     const { data } = await axios.get("/summary");
@@ -16,8 +16,4 @@ const fetchCountries = () => async (dispatch) => {
   } catch (error) {
     dispatch(fetchCountriesError());
   }
-};
-
-export default {
-  fetchCountries,
 };
